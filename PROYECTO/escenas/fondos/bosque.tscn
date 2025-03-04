@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2w315uaww2id"]
+
+[ext_resource type="Texture2D" uid="uid://82vb86w0s6k2" path="res://imagen/fondos/istockphoto-1887333430-640x640.jpg" id="1_dp3ht"]
+[ext_resource type="PackedScene" uid="uid://b86cj54t17f6x" path="res://escenas/personajes/prota/prota.tscn" id="2_ppfv5"]
+
+[sub_resource type="GDScript" id="GDScript_dyudl"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppfv5"]
+size = Vector2(150, 542.563)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omofg"]
+size = Vector2(1154, 107.5)
+
+[node name="bosque" type="Node2D"]
+script = SubResource("GDScript_dyudl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 5.0
+offset_top = -4.0
+offset_right = 1159.0
+offset_bottom = 641.0
+texture = ExtResource("1_dp3ht")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-107, 589)
+shape = SubResource("RectangleShape2D_ppfv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 587)
+shape = SubResource("RectangleShape2D_omofg")
+
+[node name="prota" parent="." instance=ExtResource("2_ppfv5")]
+position = Vector2(45, 502)
